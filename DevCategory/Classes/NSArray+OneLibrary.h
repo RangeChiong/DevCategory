@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** 快速遍历 enumerateObjects */
 - (void)ol_each:(BOOL (^)(ObjectType obj))block;
 
-/** 无序遍历 处理任务速度更快 */
+/** 并发处理任务 */
 - (void)ol_apply:(BOOL (^)(ObjectType obj))block;
 
 /** 匹配一个需要的对象，返回nil或者匹配到的对象  */
