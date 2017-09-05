@@ -50,6 +50,9 @@
 
 @end
 
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Wobjc-property-implementation\"")
+
 @implementation UITableView (OneLibrary)
 
 - (__OLTableViewHelper *)tableViewHelper {
@@ -194,6 +197,6 @@
     };
 }
 
-
+_Pragma("clang diagnostic pop")
 
 @end
