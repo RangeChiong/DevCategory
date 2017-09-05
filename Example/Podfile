@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'DevCategory_Example' do
+  pod 'DevCategory', :path => '../'
+
+  target 'DevCategory_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
