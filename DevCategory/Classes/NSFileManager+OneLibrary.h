@@ -10,6 +10,7 @@
 
 @interface NSFileManager (OneLibrary)
 
+/** 在dirPath下如果没有文件夹则创建 */
 - (void)ol_createDirectory:(NSString *)dirPath;
 
 @end
