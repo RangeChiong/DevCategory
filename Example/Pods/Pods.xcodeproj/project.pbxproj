@@ -45,8 +45,6 @@
 		4478E0561F5E8A0600E2F2BF /* UIView+OneLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 4478E0301F5E8A0600E2F2BF /* UIView+OneLibrary.m */; };
 		4478E0571F5E8A0600E2F2BF /* UIViewController+OneLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 4478E0311F5E8A0600E2F2BF /* UIViewController+OneLibrary.h */; };
 		4478E0581F5E8A0600E2F2BF /* UIViewController+OneLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 4478E0321F5E8A0600E2F2BF /* UIViewController+OneLibrary.m */; };
-		4478E0591F5E8A0600E2F2BF /* UIWebView+OneLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 4478E0331F5E8A0600E2F2BF /* UIWebView+OneLibrary.h */; };
-		4478E05A1F5E8A0600E2F2BF /* UIWebView+OneLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 4478E0341F5E8A0600E2F2BF /* UIWebView+OneLibrary.m */; };
 		918CFDA377718A19DDAAD4CA4CA87FEF /* Pods-DevCategory_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EB1C827864F6EF52131348D2305A449F /* Pods-DevCategory_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A258697E9AA3DD88D4AA9822971363BC /* Pods-DevCategory_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ED87622690B998B74B3BBCFE78F687 /* Pods-DevCategory_Example-dummy.m */; };
 		A854D66648BD99AF6C5D5171E0A8B1E9 /* Pods-DevCategory_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D5510D4DCABD4728C915AA28C7601B54 /* Pods-DevCategory_Tests-dummy.m */; };
@@ -113,8 +111,6 @@
 		4478E0301F5E8A0600E2F2BF /* UIView+OneLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+OneLibrary.m"; sourceTree = "<group>"; };
 		4478E0311F5E8A0600E2F2BF /* UIViewController+OneLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+OneLibrary.h"; sourceTree = "<group>"; };
 		4478E0321F5E8A0600E2F2BF /* UIViewController+OneLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+OneLibrary.m"; sourceTree = "<group>"; };
-		4478E0331F5E8A0600E2F2BF /* UIWebView+OneLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+OneLibrary.h"; sourceTree = "<group>"; };
-		4478E0341F5E8A0600E2F2BF /* UIWebView+OneLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+OneLibrary.m"; sourceTree = "<group>"; };
 		4622493DCE2743673BBACF45BAAA54F2 /* Pods-DevCategory_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DevCategory_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		502EB26C7B35BCFB292352C83337F067 /* Pods-DevCategory_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DevCategory_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		635AE4422E2B874A10F9C809130C8886 /* Pods-DevCategory_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DevCategory_Example-umbrella.h"; sourceTree = "<group>"; };
@@ -231,8 +227,6 @@
 				4478E0301F5E8A0600E2F2BF /* UIView+OneLibrary.m */,
 				4478E0311F5E8A0600E2F2BF /* UIViewController+OneLibrary.h */,
 				4478E0321F5E8A0600E2F2BF /* UIViewController+OneLibrary.m */,
-				4478E0331F5E8A0600E2F2BF /* UIWebView+OneLibrary.h */,
-				4478E0341F5E8A0600E2F2BF /* UIWebView+OneLibrary.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -352,7 +346,6 @@
 				4478E0571F5E8A0600E2F2BF /* UIViewController+OneLibrary.h in Headers */,
 				4478E0351F5E8A0600E2F2BF /* NSArray+OneLibrary.h in Headers */,
 				4478E03F1F5E8A0600E2F2BF /* NSObject+OneLibrary.h in Headers */,
-				4478E0591F5E8A0600E2F2BF /* UIWebView+OneLibrary.h in Headers */,
 				4478E04D1F5E8A0600E2F2BF /* UIColor+OneLibrary.h in Headers */,
 				4478E03D1F5E8A0600E2F2BF /* NSFileManager+OneLibrary.h in Headers */,
 				4478E0511F5E8A0600E2F2BF /* UITableView+OneLibrary.h in Headers */,
@@ -496,7 +489,6 @@
 				04CED2EAF0C8AAC5BA606B4EE951FA39 /* DevCategory-dummy.m in Sources */,
 				4478E0461F5E8A0600E2F2BF /* UIActionSheet+CallBack.m in Sources */,
 				4478E03C1F5E8A0600E2F2BF /* NSDictionary+OneLibrary.m in Sources */,
-				4478E05A1F5E8A0600E2F2BF /* UIWebView+OneLibrary.m in Sources */,
 				4478E0381F5E8A0600E2F2BF /* NSData+OneLibrary.m in Sources */,
 				4478E0581F5E8A0600E2F2BF /* UIViewController+OneLibrary.m in Sources */,
 				4478E0561F5E8A0600E2F2BF /* UIView+OneLibrary.m in Sources */,

@@ -58,6 +58,9 @@
 
 @end
 
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Wobjc-property-implementation\"")
+
 @implementation UICollectionView (OneLibrary)
 
 - (__OLCollectionViewHelper *)collectionView_helper {
@@ -191,5 +194,6 @@
     };
 }
 
-
 @end
+
+_Pragma("clang diagnostic pop") \

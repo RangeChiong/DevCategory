@@ -9,6 +9,9 @@
 #import "UIView+OneLibrary.h"
 @import ObjectiveC.runtime;
 
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Wobjc-property-implementation\"")
+
 @implementation UIView (OneLibrary)
 
 + (instancetype)zy_viewFromXib {
@@ -386,3 +389,4 @@
 
 @end
 
+_Pragma("clang diagnostic pop") \

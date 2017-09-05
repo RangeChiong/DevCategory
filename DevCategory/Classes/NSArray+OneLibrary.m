@@ -8,6 +8,9 @@
 
 #import "NSArray+OneLibrary.h"
 
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Wobjc-property-implementation\"")
+
 @implementation NSArray (OneLibrary)
 
 #pragma mark-  chain
@@ -184,3 +187,5 @@
 }
 
 @end
+
+_Pragma("clang diagnostic pop") \

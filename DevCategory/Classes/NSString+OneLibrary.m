@@ -13,6 +13,9 @@
 #import <net/if.h>
 #import <net/if_dl.h>
 
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Wobjc-property-implementation\"")
+
 @implementation NSString (OneLibrary)
 
 - (NSAttributedString *)ol_attributedStringOfColor:(UIColor *)color range:(NSRange)range {
@@ -406,4 +409,4 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
 
 @end
 
-
+_Pragma("clang diagnostic pop") \

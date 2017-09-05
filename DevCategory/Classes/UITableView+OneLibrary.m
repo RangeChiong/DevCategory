@@ -197,6 +197,7 @@ _Pragma("clang diagnostic ignored \"-Wobjc-property-implementation\"")
     };
 }
 
+@end
+
 _Pragma("clang diagnostic pop")
 
-@end
