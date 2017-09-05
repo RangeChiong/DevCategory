@@ -1,0 +1,6 @@
+framework module DevCategory {
+  umbrella header "DevCategory-umbrella.h"
+
+  export *
+  module * { export * }
+}

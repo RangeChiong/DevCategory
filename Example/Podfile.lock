@@ -1,0 +1,16 @@
+PODS:
+  - DevCategory (0.1.0)
+
+DEPENDENCIES:
+  - DevCategory (from `../`)
+
+EXTERNAL SOURCES:
+  DevCategory:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  DevCategory: 027566a5c8e073b8a1fe177b52cb3c62ffcaa1c6
+
+PODFILE CHECKSUM: c04c281d15be958f70728dbbd0ac338bc2cd1821
+
+COCOAPODS: 1.2.1

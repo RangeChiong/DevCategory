@@ -1,0 +1,22 @@
+{
+  "name": "DevCategory",
+  "version": "0.1.0",
+  "summary": "A short description of DevCategory.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/rangechiong/DevCategory",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "rangechiong": "changrz1@centaline.com.cn"
+  },
+  "source": {
+    "git": "https://github.com/rangechiong/DevCategory.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "DevCategory/Classes/**/*"
+}
