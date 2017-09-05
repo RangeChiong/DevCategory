@@ -10,7 +10,7 @@
 
 @implementation NSDictionary (OneLibrary)
 
-- (void)ol_each:(BOOL (^)(id<NSCopying> key, id obj))block {
+- (void)zy_each:(BOOL (^)(id<NSCopying> key, id obj))block {
     NSParameterAssert(block != nil);
     
     [self enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
@@ -18,7 +18,7 @@
     }];
 }
 
-- (void)ol_apply:(BOOL (^)(id<NSCopying> key, id obj))block {
+- (void)zy_apply:(BOOL (^)(id<NSCopying> key, id obj))block {
     NSParameterAssert(block != nil);
     
     [self enumerateKeysAndObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id key, id obj, BOOL *stop) {
@@ -26,7 +26,7 @@
     }];
 }
 
-- (id)ol_match:(BOOL (^)(id<NSCopying> key, id obj))block {
+- (id)zy_match:(BOOL (^)(id<NSCopying> key, id obj))block {
     NSParameterAssert(block != nil);
     
     return self[[[self keysOfEntriesPassingTest:^(id key, id obj, BOOL *stop) {
@@ -39,7 +39,7 @@
     }] anyObject]];
 }
 
-- (NSDictionary *)ol_select:(BOOL (^)(id<NSCopying> key, id obj))block {
+- (NSDictionary *)zy_select:(BOOL (^)(id<NSCopying> key, id obj))block {
     NSParameterAssert(block != nil);
     
     NSArray *keys = [[self keysOfEntriesPassingTest:^(id key, id obj, BOOL *stop) {
@@ -50,12 +50,12 @@
     return [NSDictionary dictionaryWithObjects:objects forKeys:keys];
 }
 
-- (NSDictionary *)ol_map:(id (^)(id<NSCopying> key, id obj))block {
+- (NSDictionary *)zy_map:(id (^)(id<NSCopying> key, id obj))block {
     NSParameterAssert(block != nil);
     
     NSMutableDictionary *result = [NSMutableDictionary dictionaryWithCapacity:self.count];
     
-    [self ol_each:^BOOL(id key, id obj) {
+    [self zy_each:^BOOL(id key, id obj) {
         id value = block(key, obj) ?: [NSNull null];
         result[key] = value;
         return NO;

@@ -17,7 +17,7 @@
 
 @implementation UIControl (OneLibrary)
 
-- (void)ol_actionForControlEvents:(UIControlEvents)controlEvents usingBlock:(void (^)(id sender))block {    
+- (void)zy_actionForControlEvents:(UIControlEvents)controlEvents usingBlock:(void (^)(id sender))block {    
     self.actionBlock = block;
     [self addTarget:self action:@selector(__controlAction:) forControlEvents:controlEvents];
 

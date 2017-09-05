@@ -10,7 +10,7 @@
 
 @interface UITextView (OneLibrary)
 
-@property (nonatomic, strong) NSString *ol_placeholder;
-@property (nonatomic, assign) NSUInteger ol_limitLength;
+@property (nonatomic, strong) NSString *zy_placeholder;
+@property (nonatomic, assign) NSUInteger zy_limitLength;
 
 @end

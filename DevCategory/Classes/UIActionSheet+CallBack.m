@@ -15,16 +15,16 @@
 @implementation UIActionSheet (CallBack)
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    !self.ol_clickButtonIndexBlock ?: self.ol_clickButtonIndexBlock(buttonIndex);
+    !self.zy_clickButtonIndexBlock ?: self.zy_clickButtonIndexBlock(buttonIndex);
 }
 
-- (void (^)(NSUInteger))ol_clickButtonIndexBlock {
+- (void (^)(NSUInteger))zy_clickButtonIndexBlock {
     return objc_getAssociatedObject(self, _cmd);
 }
 
-- (void)setOl_clickButtonIndexBlock:(void (^)(NSUInteger))clickButtonIndexBlock {
+- (void)setZy_clickButtonIndexBlock:(void (^)(NSUInteger))clickButtonIndexBlock {
     self.delegate = self;
-    objc_setAssociatedObject(self, @selector(ol_clickButtonIndexBlock), clickButtonIndexBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(zy_clickButtonIndexBlock), clickButtonIndexBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
 @end

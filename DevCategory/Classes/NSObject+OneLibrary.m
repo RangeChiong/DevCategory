@@ -12,7 +12,7 @@
 
 @implementation NSObject (OneLibrary)
 
-void ol_swizzleClassDealloc(Class class, void (^code)(__unsafe_unretained id object)) {
+void zy_swizzleClassDealloc(Class class, void (^code)(__unsafe_unretained id object)) {
     
     SEL deallocSEL = sel_registerName("dealloc");
     
@@ -64,67 +64,67 @@ void ol_swizzleClassDealloc(Class class, void (^code)(__unsafe_unretained id obj
 
 #pragma mark-  关联nonatomically, strong/retain对象
 
-- (void)ol_associateValue:(id)value key:(const void *)key {
+- (void)zy_associateValue:(id)value key:(const void *)key {
     objc_setAssociatedObject(self, key, value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-+ (void)ol_associateValue:(id)value key:(const void *)key {
++ (void)zy_associateValue:(id)value key:(const void *)key {
     objc_setAssociatedObject(self, key, value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 #pragma mark-  关联atomically, strong/retain对象
 
-- (void)ol_atomicallyAssociateValue:(id)value key:(const void *)key {
+- (void)zy_atomicallyAssociateValue:(id)value key:(const void *)key {
     objc_setAssociatedObject(self, key, value, OBJC_ASSOCIATION_RETAIN);
 }
 
-+ (void)ol_atomicallyAssociateValue:(id)value key:(const void *)key {
++ (void)zy_atomicallyAssociateValue:(id)value key:(const void *)key {
     objc_setAssociatedObject(self, key, value, OBJC_ASSOCIATION_RETAIN);
 }
 
 #pragma mark-  关联nonatomically, copy对象
 
-- (void)ol_associateCopyOfValue:(id)value key:(const void *)key {
+- (void)zy_associateCopyOfValue:(id)value key:(const void *)key {
     objc_setAssociatedObject(self, key, value, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
-+ (void)ol_associateCopyOfValue:(id)value key:(const void *)key {
++ (void)zy_associateCopyOfValue:(id)value key:(const void *)key {
     objc_setAssociatedObject(self, key, value, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
 #pragma mark-  关联atomically, copy对象
 
-- (void)ol_atomicallyAssociateCopyOfValue:(id)value key:(const void *)key {
+- (void)zy_atomicallyAssociateCopyOfValue:(id)value key:(const void *)key {
     objc_setAssociatedObject(self, key, value, OBJC_ASSOCIATION_COPY);
 }
 
-+ (void)ol_atomicallyAssociateCopyOfValue:(id)value key:(const void *)key {
++ (void)zy_atomicallyAssociateCopyOfValue:(id)value key:(const void *)key {
     objc_setAssociatedObject(self, key, value, OBJC_ASSOCIATION_COPY);
 }
 
 #pragma mark-  关联weak对象
 
-- (void)ol_weaklyAssociateValue:(__autoreleasing id)value key:(const void *)key {
+- (void)zy_weaklyAssociateValue:(__autoreleasing id)value key:(const void *)key {
     __OLWeakAssociatedHelper *assoc = objc_getAssociatedObject(self, key);
     if (!assoc) {
         assoc = [__OLWeakAssociatedHelper new];
-        [self ol_associateValue:assoc key:key];
+        [self zy_associateValue:assoc key:key];
     }
     assoc.value = value;
 }
 
-+ (void)ol_weaklyAssociateValue:(__autoreleasing id)value key:(const void *)key{
++ (void)zy_weaklyAssociateValue:(__autoreleasing id)value key:(const void *)key{
     __OLWeakAssociatedHelper *assoc = objc_getAssociatedObject(self, key);
     if (!assoc) {
         assoc = [__OLWeakAssociatedHelper new];
-        [self ol_associateValue:assoc key:key];
+        [self zy_associateValue:assoc key:key];
     }
     assoc.value = value;
 }
 
 #pragma mark-  获取关联对象
 
-- (id)ol_associatedValueForKey:(const void *)key {
+- (id)zy_associatedValueForKey:(const void *)key {
     id value = objc_getAssociatedObject(self, key);
     if (value && [value isKindOfClass:[__OLWeakAssociatedHelper class]]) {
         return [(__OLWeakAssociatedHelper *)value value];
@@ -132,7 +132,7 @@ void ol_swizzleClassDealloc(Class class, void (^code)(__unsafe_unretained id obj
     return value;
 }
 
-+ (id)ol_associatedValueForKey:(const void *)key {
++ (id)zy_associatedValueForKey:(const void *)key {
     id value = objc_getAssociatedObject(self, key);
     if (value && [value isKindOfClass:[__OLWeakAssociatedHelper class]]) {
         return [(__OLWeakAssociatedHelper *)value value];
@@ -142,11 +142,11 @@ void ol_swizzleClassDealloc(Class class, void (^code)(__unsafe_unretained id obj
 
 #pragma mark-  remove 关联
 
-- (void)ol_removeAllAssociatedObjects {
+- (void)zy_removeAllAssociatedObjects {
     objc_removeAssociatedObjects(self);
 }
 
-+ (void)ol_removeAllAssociatedObjects {
++ (void)zy_removeAllAssociatedObjects {
     objc_removeAssociatedObjects(self);
 }
 
@@ -238,7 +238,7 @@ static const void *NSObject_Observers = &NSObject_Observers;
 
 #pragma mark-  建立监听
 
-- (void)ol_observeValueForKeyPath:(NSString *)keyPath target:(id)target selector:(SEL)aSelector {
+- (void)zy_observeValueForKeyPath:(NSString *)keyPath target:(id)target selector:(SEL)aSelector {
     NSAssert([target respondsToSelector:aSelector], @"selector & target 必须存在");
     NSAssert(keyPath.length > 0, @"keyPath 不能为@\"\"");
     NSAssert(self, @"被观察的对象object不能为nil 必须存在");
@@ -250,12 +250,12 @@ static const void *NSObject_Observers = &NSObject_Observers;
     NSString *key = [NSString stringWithFormat:@"%p_%@", self, keyPath];
     self.kvoContainer[key] = observer;
     
-    ol_swizzleClassDealloc(self.class, ^(__unsafe_unretained id object) {
-        [object ol_removeAllObserver];
+    zy_swizzleClassDealloc(self.class, ^(__unsafe_unretained id object) {
+        [object zy_removeAllObserver];
     });
 }
 
-- (void)ol_observeValueForKeyPath:(NSString *)keyPath block:(void(^)(id newValue, id oldValue))block {
+- (void)zy_observeValueForKeyPath:(NSString *)keyPath block:(void(^)(id newValue, id oldValue))block {
     NSAssert(block, @"block 不能为nil");
     NSAssert(keyPath.length > 0, @"keyPath 不能为@\"\"");
     NSAssert(self, @"被观察的对象object 不能为nil 必须存在");
@@ -266,14 +266,14 @@ static const void *NSObject_Observers = &NSObject_Observers;
     NSString *key = [NSString stringWithFormat:@"%p_%@", self, keyPath];
     self.kvoContainer[key] = observer;
     
-    ol_swizzleClassDealloc(self.class, ^(__unsafe_unretained id object) {
-        [object ol_removeAllObserver];
+    zy_swizzleClassDealloc(self.class, ^(__unsafe_unretained id object) {
+        [object zy_removeAllObserver];
     });
 }
 
 #pragma mark-  移除监听
 
-- (void)ol_removeObserverForKeyPath:(NSString *)keyPath {
+- (void)zy_removeObserverForKeyPath:(NSString *)keyPath {
     NSAssert(self, @"被观察的对象object 不能为nil 必须存在");
     NSAssert(keyPath.length > 0, @"keyPath 不能为@\"\"");
     
@@ -282,7 +282,7 @@ static const void *NSObject_Observers = &NSObject_Observers;
     [self.kvoContainer removeObjectForKey:key];
 }
 
-- (void)ol_removeAllObserver {
+- (void)zy_removeAllObserver {
     NSAssert(self, @"被观察的对象object 不能为nil 必须存在");
     NSString *prefix = [NSString stringWithFormat:@"%p", self];
     [self.kvoContainer enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, __OLKVOHelper * _Nonnull obj, BOOL * _Nonnull stop) {
@@ -383,11 +383,11 @@ static const void *Notification_Container = &Notification_Container;
 
 #pragma mark-  add observer of a notification
 
-- (void)ol_observeNotification:(NSString *)aName block:(void(^)(NSNotification *noti))block {
-    [self ol_observeNotification:aName object:nil block:block];
+- (void)zy_observeNotification:(NSString *)aName block:(void(^)(NSNotification *noti))block {
+    [self zy_observeNotification:aName object:nil block:block];
 }
 
-- (void)ol_observeNotification:(NSString *)aName object:(id)anObject block:(void(^)(NSNotification *noti))block {
+- (void)zy_observeNotification:(NSString *)aName object:(id)anObject block:(void(^)(NSNotification *noti))block {
     NSAssert(block, @"block 不能为nil");
     NSAssert(aName.length > 0, @"NotificationName 不能为@\"\"");
     
@@ -399,12 +399,12 @@ static const void *Notification_Container = &Notification_Container;
 
 }
 
-- (void)ol_observeNotification:(NSString *)aName target:(id)target selector:(SEL)aSelector {
+- (void)zy_observeNotification:(NSString *)aName target:(id)target selector:(SEL)aSelector {
     
-    [self ol_observeNotification:aName target:target selector:aSelector object:nil];
+    [self zy_observeNotification:aName target:target selector:aSelector object:nil];
 }
 
-- (void)ol_observeNotification:(NSString *)aName target:(id)target selector:(SEL)aSelector object:(id)anObject {
+- (void)zy_observeNotification:(NSString *)aName target:(id)target selector:(SEL)aSelector object:(id)anObject {
     NSAssert([target respondsToSelector:aSelector], @"selector & target 必须存在");
     NSAssert(aName.length > 0, @"NotificationName 不能为@\"\"");
     
@@ -419,19 +419,19 @@ static const void *Notification_Container = &Notification_Container;
 
 #pragma mark-  post notification
 
-- (void)ol_postNotification:(NSString *)aName {
-    [self ol_postNotification:aName object:nil userInfo:nil];
+- (void)zy_postNotification:(NSString *)aName {
+    [self zy_postNotification:aName object:nil userInfo:nil];
 }
 
-- (void)ol_postNotification:(NSString *)aName object:(id)anObject {
-    [self ol_postNotification:aName object:anObject userInfo:nil];
+- (void)zy_postNotification:(NSString *)aName object:(id)anObject {
+    [self zy_postNotification:aName object:anObject userInfo:nil];
 }
 
-- (void)ol_postNotification:(NSString *)aName userInfo:(NSDictionary *)aUserInfo {
-    [self ol_postNotification:aName object:nil userInfo:aUserInfo];
+- (void)zy_postNotification:(NSString *)aName userInfo:(NSDictionary *)aUserInfo {
+    [self zy_postNotification:aName object:nil userInfo:aUserInfo];
 }
 
-- (void)ol_postNotification:(NSString *)aName object:(id)anObject userInfo:(NSDictionary *)aUserInfo {
+- (void)zy_postNotification:(NSString *)aName object:(id)anObject userInfo:(NSDictionary *)aUserInfo {
     dispatch_async(dispatch_get_main_queue(), ^{
         [[NSNotificationCenter defaultCenter] postNotificationName:aName object:anObject userInfo:aUserInfo];
     });
@@ -439,13 +439,13 @@ static const void *Notification_Container = &Notification_Container;
 
 #pragma mark- remove notification
 
-- (void)ol_removeNotification:(NSString *)aName {
+- (void)zy_removeNotification:(NSString *)aName {
     NSAssert(aName.length > 0, @"NotificationName 不能为@\"\"");
     
     [self.notiContainer removeObjectForKey:aName];
 }
 
-- (void)ol_removeAllNotification {
+- (void)zy_removeAllNotification {
     [self.notiContainer removeAllObjects];
 }
 

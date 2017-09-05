@@ -31,8 +31,6 @@
 		4478E0461F5E8A0600E2F2BF /* UIActionSheet+CallBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 4478E0201F5E8A0600E2F2BF /* UIActionSheet+CallBack.m */; };
 		4478E0471F5E8A0600E2F2BF /* UIAlertView+CallBack.h in Headers */ = {isa = PBXBuildFile; fileRef = 4478E0211F5E8A0600E2F2BF /* UIAlertView+CallBack.h */; };
 		4478E0481F5E8A0600E2F2BF /* UIAlertView+CallBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 4478E0221F5E8A0600E2F2BF /* UIAlertView+CallBack.m */; };
-		4478E0491F5E8A0600E2F2BF /* UIButton+OneLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 4478E0231F5E8A0600E2F2BF /* UIButton+OneLibrary.h */; };
-		4478E04A1F5E8A0600E2F2BF /* UIButton+OneLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 4478E0241F5E8A0600E2F2BF /* UIButton+OneLibrary.m */; };
 		4478E04B1F5E8A0600E2F2BF /* UICollectionView+OneLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 4478E0251F5E8A0600E2F2BF /* UICollectionView+OneLibrary.h */; };
 		4478E04C1F5E8A0600E2F2BF /* UICollectionView+OneLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 4478E0261F5E8A0600E2F2BF /* UICollectionView+OneLibrary.m */; };
 		4478E04D1F5E8A0600E2F2BF /* UIColor+OneLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 4478E0271F5E8A0600E2F2BF /* UIColor+OneLibrary.h */; };
@@ -101,8 +99,6 @@
 		4478E0201F5E8A0600E2F2BF /* UIActionSheet+CallBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+CallBack.m"; sourceTree = "<group>"; };
 		4478E0211F5E8A0600E2F2BF /* UIAlertView+CallBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+CallBack.h"; sourceTree = "<group>"; };
 		4478E0221F5E8A0600E2F2BF /* UIAlertView+CallBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+CallBack.m"; sourceTree = "<group>"; };
-		4478E0231F5E8A0600E2F2BF /* UIButton+OneLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+OneLibrary.h"; sourceTree = "<group>"; };
-		4478E0241F5E8A0600E2F2BF /* UIButton+OneLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+OneLibrary.m"; sourceTree = "<group>"; };
 		4478E0251F5E8A0600E2F2BF /* UICollectionView+OneLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+OneLibrary.h"; sourceTree = "<group>"; };
 		4478E0261F5E8A0600E2F2BF /* UICollectionView+OneLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+OneLibrary.m"; sourceTree = "<group>"; };
 		4478E0271F5E8A0600E2F2BF /* UIColor+OneLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+OneLibrary.h"; sourceTree = "<group>"; };
@@ -221,8 +217,6 @@
 				4478E0201F5E8A0600E2F2BF /* UIActionSheet+CallBack.m */,
 				4478E0211F5E8A0600E2F2BF /* UIAlertView+CallBack.h */,
 				4478E0221F5E8A0600E2F2BF /* UIAlertView+CallBack.m */,
-				4478E0231F5E8A0600E2F2BF /* UIButton+OneLibrary.h */,
-				4478E0241F5E8A0600E2F2BF /* UIButton+OneLibrary.m */,
 				4478E0251F5E8A0600E2F2BF /* UICollectionView+OneLibrary.h */,
 				4478E0261F5E8A0600E2F2BF /* UICollectionView+OneLibrary.m */,
 				4478E0271F5E8A0600E2F2BF /* UIColor+OneLibrary.h */,
@@ -351,7 +345,6 @@
 				4478E0471F5E8A0600E2F2BF /* UIAlertView+CallBack.h in Headers */,
 				C69C04884390D9C81EF0C70D251625C4 /* DevCategory-umbrella.h in Headers */,
 				4478E0431F5E8A0600E2F2BF /* NSTimer+OneLibrary.h in Headers */,
-				4478E0491F5E8A0600E2F2BF /* UIButton+OneLibrary.h in Headers */,
 				4478E04F1F5E8A0600E2F2BF /* UINavigationController+OneLibrary.h in Headers */,
 				4478E00D1F5E727E00E2F2BF /* UIControl+OneLibrary.h in Headers */,
 				4478E04B1F5E8A0600E2F2BF /* UICollectionView+OneLibrary.h in Headers */,
@@ -503,7 +496,6 @@
 				04CED2EAF0C8AAC5BA606B4EE951FA39 /* DevCategory-dummy.m in Sources */,
 				4478E0461F5E8A0600E2F2BF /* UIActionSheet+CallBack.m in Sources */,
 				4478E03C1F5E8A0600E2F2BF /* NSDictionary+OneLibrary.m in Sources */,
-				4478E04A1F5E8A0600E2F2BF /* UIButton+OneLibrary.m in Sources */,
 				4478E05A1F5E8A0600E2F2BF /* UIWebView+OneLibrary.m in Sources */,
 				4478E0381F5E8A0600E2F2BF /* NSData+OneLibrary.m in Sources */,
 				4478E0581F5E8A0600E2F2BF /* UIViewController+OneLibrary.m in Sources */,

@@ -24,7 +24,7 @@
 
 - (void)setOl_clickButtonIndexBlock:(void (^)(NSUInteger))clickButtonIndexBlock {
     self.delegate = self;
-    objc_setAssociatedObject(self, @selector(ol_clickButtonIndexBlock), clickButtonIndexBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(zy_clickButtonIndexBlock), clickButtonIndexBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
 @end

@@ -10,6 +10,6 @@
 
 @interface UIActionSheet (CallBack)
 
-@property(nonatomic, copy) void (^ol_clickButtonIndexBlock)(NSUInteger index);
+@property(nonatomic, copy) void (^zy_clickButtonIndexBlock)(NSUInteger index);
 
 @end

@@ -10,7 +10,7 @@
 
 @implementation NSFileManager (OneLibrary)
 
-- (void)ol_createDirectory:(NSString *)dirPath {
+- (void)zy_createDirectory:(NSString *)dirPath {
     
     BOOL isDirector = NO;
     BOOL isExiting = [self fileExistsAtPath:dirPath isDirectory:&isDirector];

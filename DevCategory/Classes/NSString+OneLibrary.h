@@ -124,11 +124,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSString (Chain)
 
-@property (nonatomic, readonly, class) NSString *(^ol_format)(NSString *str, ...);
-@property (nonatomic, copy, readonly) BOOL (^ol_equal)(NSString *str);
-@property (nonatomic, copy, readonly) NSString *(^ol_append)(NSString *str);
-@property (nonatomic, copy, readonly) NSString *(^ol_appendFormat)(NSString *str, ...);
-@property (nonatomic, copy, readonly) NSString *(^ol_replace)(NSString *src, NSString *dst);
+@property (nonatomic, readonly, class) NSString *(^zy_format)(NSString *str, ...);
+@property (nonatomic, copy, readonly) BOOL (^zy_equal)(NSString *str);
+@property (nonatomic, copy, readonly) NSString *(^zy_append)(NSString *str);
+@property (nonatomic, copy, readonly) NSString *(^zy_appendFormat)(NSString *str, ...);
+@property (nonatomic, copy, readonly) NSString *(^zy_replace)(NSString *src, NSString *dst);
 
 @end
 

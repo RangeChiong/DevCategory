@@ -11,11 +11,11 @@
 
 @implementation UIView (OneLibrary)
 
-+ (instancetype)ol_viewFromXib {
++ (instancetype)zy_viewFromXib {
     return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil] lastObject];
 }
 
-- (UIViewController *)ol_viewController {
+- (UIViewController *)zy_viewController {
     for (UIView *next = [self superview]; next; next = next.superview) {
         UIResponder *nextResponder = [next nextResponder];
         if ([nextResponder isKindOfClass:[UIViewController class]]) {
@@ -25,7 +25,7 @@
     return nil;
 }
 
-- (UIImage *)ol_snapshot {
+- (UIImage *)zy_snapshot {
     UIGraphicsBeginImageContextWithOptions(self.frame.size, YES, [[UIScreen mainScreen] scale]);
     [self drawViewHierarchyInRect:self.bounds afterScreenUpdates:YES];
     UIImage *snapshot = UIGraphicsGetImageFromCurrentImageContext();
@@ -33,19 +33,19 @@
     return snapshot;
 }
 
-- (UIImage *)ol_contentImage {
+- (UIImage *)zy_contentImage {
     return [UIImage imageWithCGImage:(__bridge CGImageRef)self.layer.contents];
 }
 
-- (void)setOl_contentImage:(UIImage *)contentImage {
+- (void)setZy_contentImage:(UIImage *)contentImage {
     self.layer.contents = (__bridge id)contentImage.CGImage;;
 }
 
-- (void)ol_removeAllSubviews {
+- (void)zy_removeAllSubviews {
     [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
 }
 
-- (void)ol_eachSubview:(void (^)(UIView *subview))block {
+- (void)zy_eachSubview:(void (^)(UIView *subview))block {
     NSParameterAssert(block != nil);
     
     [self.subviews enumerateObjectsUsingBlock:^(UIView *subview, NSUInteger idx, BOOL *stop) {
@@ -53,11 +53,11 @@
     }];
 }
 
-- (void)ol_limitUserInteractionEnabled {
-    [self ol_limitUserInteractionEnabledWithTimeInterval:0.5];
+- (void)zy_limitUserInteractionEnabled {
+    [self zy_limitUserInteractionEnabledWithTimeInterval:0.5];
 }
 
-- (void)ol_limitUserInteractionEnabledWithTimeInterval:(NSTimeInterval)ti {
+- (void)zy_limitUserInteractionEnabledWithTimeInterval:(NSTimeInterval)ti {
     self.userInteractionEnabled = NO;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(ti * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         self.userInteractionEnabled = YES;
@@ -69,160 +69,160 @@
 
 @implementation UIView (EasyShow)
 
-- (void)setOl_x:(CGFloat)x {
+- (void)setZy_x:(CGFloat)x {
     CGRect frame = self.frame;
     frame.origin.x = x;
     self.frame = frame;
 }
 
-- (CGFloat)ol_x {
+- (CGFloat)zy_x {
     return self.frame.origin.x;
 }
 
-- (void)setOl_left:(CGFloat)x {
-    [self setOl_x:x];
+- (void)setZy_left:(CGFloat)x {
+    [self setZy_x:x];
 }
 
-- (CGFloat)ol_left {
+- (CGFloat)zy_left {
     return self.frame.origin.x;
 }
 
-- (void)setOl_maxX:(CGFloat)maxX {
-    self.ol_x = maxX - self.ol_width;
+- (void)setZy_maxX:(CGFloat)maxX {
+    self.zy_x = maxX - self.zy_width;
 }
 
-- (CGFloat)ol_maxX {
+- (CGFloat)zy_maxX {
     return CGRectGetMaxX(self.frame);
 }
 
-- (void)setOl_right:(CGFloat)maxX {
-    [self setOl_maxX:maxX];
+- (void)setZy_right:(CGFloat)maxX {
+    [self setZy_maxX:maxX];
 }
 
-- (CGFloat)ol_right {
+- (CGFloat)zy_right {
     return CGRectGetMaxX(self.frame);
 }
 
-- (void)setOl_maxY:(CGFloat)maxY {
-    self.ol_y = maxY - self.ol_height;
+- (void)setZy_maxY:(CGFloat)maxY {
+    self.zy_y = maxY - self.zy_height;
 }
 
-- (CGFloat)ol_maxY {
+- (CGFloat)zy_maxY {
     return CGRectGetMaxY(self.frame);
 }
 
-- (void)setOl_bottom:(CGFloat)maxY {
-    [self setOl_maxX:maxY];
+- (void)setZy_bottom:(CGFloat)maxY {
+    [self setZy_maxX:maxY];
 }
 
-- (CGFloat)ol_bottom {
+- (CGFloat)zy_bottom {
     return CGRectGetMaxY(self.frame);
 }
 
-- (void)setOl_y:(CGFloat)y {
+- (void)setZy_y:(CGFloat)y {
     CGRect frame = self.frame;
     frame.origin.y = y;
     self.frame = frame;
 }
 
-- (CGFloat)ol_y {
+- (CGFloat)zy_y {
     return self.frame.origin.y;
 }
 
-- (void)setOl_top:(CGFloat)y {
-    [self setOl_y:y];
+- (void)setZy_top:(CGFloat)y {
+    [self setZy_y:y];
 }
 
-- (CGFloat)ol_top {
+- (CGFloat)zy_top {
     return self.frame.origin.y;
 }
 
-- (void)setOl_centerX:(CGFloat)centerX {
+- (void)setZy_centerX:(CGFloat)centerX {
     CGPoint center = self.center;
     center.x = centerX;
     self.center = center;
 }
 
-- (CGFloat)ol_centerX {
+- (CGFloat)zy_centerX {
     return self.center.x;
 }
 
-- (void)setOl_centerY:(CGFloat)centerY {
+- (void)setZy_centerY:(CGFloat)centerY {
     CGPoint center = self.center;
     center.y = centerY;
     self.center = center;
 }
 
-- (CGFloat)ol_centerY {
+- (CGFloat)zy_centerY {
     return self.center.y;
 }
 
-- (void)setOl_width:(CGFloat)width {
+- (void)setZy_width:(CGFloat)width {
     CGRect frame = self.frame;
     frame.size.width = width;
     self.frame = frame;
 }
 
-- (CGFloat)ol_width {
+- (CGFloat)zy_width {
     return self.frame.size.width;
 }
 
-- (void)setOl_height:(CGFloat)height {
+- (void)setZy_height:(CGFloat)height {
     CGRect frame = self.frame;
     frame.size.height = height;
     self.frame = frame;
 }
 
-- (CGFloat)ol_height {
+- (CGFloat)zy_height {
     return self.frame.size.height;
 }
 
-- (CGPoint)ol_origin {
+- (CGPoint)zy_origin {
     return self.frame.origin;
 }
 
-- (void)setOl_origin:(CGPoint)origin {
+- (void)setZy_origin:(CGPoint)origin {
     CGRect frame = self.frame;
     frame.origin = origin;
     self.frame = frame;
 }
 
-- (void)setOl_size:(CGSize)size {
+- (void)setZy_size:(CGSize)size {
     CGRect frame = self.frame;
     frame.size = size;
     self.frame = frame;
 }
 
-- (CGSize)ol_size {
+- (CGSize)zy_size {
     return self.frame.size;
 }
 
-- (void)setOl_cornerRadius:(CGFloat)radius {
+- (void)setZy_cornerRadius:(CGFloat)radius {
     self.layer.cornerRadius = radius;
     self.layer.masksToBounds = radius > 0;
 }
 
-- (CGFloat)ol_cornerRadius {
+- (CGFloat)zy_cornerRadius {
     return self.layer.cornerRadius;
 }
 
-- (void)ol_round {
-    [self setOl_cornerRadius:self.frame.size.height/2];
+- (void)zy_round {
+    [self setZy_cornerRadius:self.frame.size.height/2];
 }
 
-- (void)ol_shadowColor:(UIColor *)color offset:(CGSize)offset opacity:(CGFloat)opcity radius:(CGFloat)radius {
+- (void)zy_shadowColor:(UIColor *)color offset:(CGSize)offset opacity:(CGFloat)opcity radius:(CGFloat)radius {
     self.layer.shadowColor = color.CGColor;
     self.layer.shadowOffset = offset;
     self.layer.shadowOpacity = opcity;
     self.layer.shadowRadius = radius;
 }
 
-- (void)ol_borderWidth:(CGFloat)width color:(UIColor *)color {
+- (void)zy_borderWidth:(CGFloat)width color:(UIColor *)color {
     self.layer.borderWidth = width;
     self.layer.borderColor = color.CGColor;
 }
 
-- (void)ol_setAnchorPoint:(CGPoint)anchorPoint {
+- (void)zy_setAnchorPoint:(CGPoint)anchorPoint {
     CGPoint oldOrigin = self.frame.origin;
     self.layer.anchorPoint = anchorPoint;
     CGPoint newOrigin = self.frame.origin;
@@ -241,98 +241,98 @@
 
 @implementation UIView (Chain)
 
-- (UIView *(^)(CGFloat))ol_setX {
+- (UIView *(^)(CGFloat))zy_setX {
     return ^UIView *(CGFloat x) {
-        self.ol_x = x;
+        self.zy_x = x;
         return self;
     };
 }
 
-- (UIView *(^)(CGFloat))ol_setY {
+- (UIView *(^)(CGFloat))zy_setY {
     return ^UIView *(CGFloat y) {
-        self.ol_y = y;
+        self.zy_y = y;
         return self;
     };
 }
 
-- (UIView *(^)(CGFloat))ol_setWidth {
+- (UIView *(^)(CGFloat))zy_setWidth {
     return ^UIView *(CGFloat w) {
-        self.ol_width = w;
+        self.zy_width = w;
         return self;
     };
 }
 
-- (UIView *(^)(CGFloat))ol_setHeight {
+- (UIView *(^)(CGFloat))zy_setHeight {
     return ^UIView *(CGFloat h) {
-        self.ol_height = h;
+        self.zy_height = h;
         return self;
     };
 }
 
-- (UIView *(^)(UIView *))ol_add {
+- (UIView *(^)(UIView *))zy_add {
     return ^UIView *(UIView *childView) {
         [self addSubview:childView];
         return self;
     };
 }
 
-- (UIView *(^)(UIView *))ol_addTo {
+- (UIView *(^)(UIView *))zy_addTo {
     return ^UIView *(UIView *superView) {
         [superView addSubview:self];
         return self;
     };
 }
 
-- (UIView *(^)(BOOL))ol_setHidden {
+- (UIView *(^)(BOOL))zy_setHidden {
     return ^UIView *(BOOL hidden) {
         self.hidden = hidden;
         return self;
     };
 }
 
-- (UIView * (^)())ol_setRound {
+- (UIView * (^)())zy_setRound {
     return ^UIView * {
-        [self ol_round];
+        [self zy_round];
         return self;
     };
 }
 
-- (UIView *(^)(CGFloat))ol_setBorderWidth {
+- (UIView *(^)(CGFloat))zy_setBorderWidth {
     return ^UIView *(CGFloat width) {
         self.layer.borderWidth = width;
         return self;
     };
 }
 
-- (UIView *(^)(UIColor *))ol_setBorderColor {
+- (UIView *(^)(UIColor *))zy_setBorderColor {
     return ^UIView *(UIColor *color) {
         self.layer.borderColor = color.CGColor;
         return self;
     };
 }
 
-- (UIView *(^)(UIColor *))ol_setShadowColor {
+- (UIView *(^)(UIColor *))zy_setShadowColor {
     return ^UIView *(UIColor *color) {
         self.layer.shadowColor = color.CGColor;
         return self;
     };
 }
 
-- (UIView *(^)(CGSize))ol_setShadowOffset {
+- (UIView *(^)(CGSize))zy_setShadowOffset {
     return ^UIView *(CGSize offset) {
         self.layer.shadowOffset = offset;
         return self;
     };
 }
 
-- (UIView *(^)(CGFloat))ol_setShadowOpacity {
+- (UIView *(^)(CGFloat))zy_setShadowOpacity {
     return ^UIView *(CGFloat opacity) {
         self.layer.shadowOpacity = opacity;
         return self;
     };
 }
 
-- (UIView *(^)(CGFloat))ol_setShadowRadius {
+- (UIView *(^)(CGFloat))zy_setShadowRadius {
     return ^UIView *(CGFloat radius) {
         self.layer.shadowRadius = radius;
         return self;
@@ -345,7 +345,7 @@
 
 @interface UIView (__OLGestureBlockPrivate)
 
-@property (nonatomic, copy) void (^ol_handler)(UITapGestureRecognizer *tap);
+@property (nonatomic, copy) void (^zy_handler)(UITapGestureRecognizer *tap);
 
 @end
 
@@ -353,7 +353,7 @@
 
 #pragma mark-  添加 tap 手势
 
-- (UITapGestureRecognizer *)ol_tapWithTarget:(id)target action:(SEL)aSelector {
+- (UITapGestureRecognizer *)zy_tapWithTarget:(id)target action:(SEL)aSelector {
     NSAssert([target respondsToSelector:aSelector], @"selector & target 必须存在");
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:target action:aSelector];
@@ -361,26 +361,26 @@
     return tap;
 }
 
-- (void)ol_tapWithHandler:(void (^)(UITapGestureRecognizer *tap))handler {
+- (void)zy_tapWithHandler:(void (^)(UITapGestureRecognizer *tap))handler {
     NSAssert(handler, @"handler 不能为nil");
-    self.ol_handler = handler;
+    self.zy_handler = handler;
     
-    [self ol_tapWithTarget:self action:@selector(__ol_handlerTapAction:)];
+    [self zy_tapWithTarget:self action:@selector(__zy_handlerTapAction:)];
 }
 
 #pragma mark-  private methods
 
-- (void)__ol_handlerTapAction:(UITapGestureRecognizer *)sender {
-    self.ol_handler(sender);
+- (void)__zy_handlerTapAction:(UITapGestureRecognizer *)sender {
+    self.zy_handler(sender);
 }
 
 #pragma mark-  setter && getter
 
-- (void)setOl_handler:(void (^)(UITapGestureRecognizer *))ol_handler {
-    objc_setAssociatedObject(self, @selector(ol_handler), ol_handler, OBJC_ASSOCIATION_COPY_NONATOMIC);
+- (void)setZy_handler:(void (^)(UITapGestureRecognizer *))zy_handler {
+    objc_setAssociatedObject(self, @selector(zy_handler), zy_handler, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
-- (void (^)(UITapGestureRecognizer *))ol_handler {
+- (void (^)(UITapGestureRecognizer *))zy_handler {
     return objc_getAssociatedObject(self, _cmd);
 }
 

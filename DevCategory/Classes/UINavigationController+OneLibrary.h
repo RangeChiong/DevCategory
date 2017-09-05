@@ -10,6 +10,6 @@
 
 @interface UINavigationController (OneLibrary)
 
-- (void)ol_disableEdgePanGestureRecoginzer:(BOOL)enable;
+- (void)zy_disableEdgePanGestureRecoginzer:(BOOL)enable;
 
 @end

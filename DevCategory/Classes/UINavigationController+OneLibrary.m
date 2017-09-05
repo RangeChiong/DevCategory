@@ -10,7 +10,7 @@
 
 @implementation UINavigationController (OneLibrary)
 
-- (void)ol_disableEdgePanGestureRecoginzer:(BOOL)enable {
+- (void)zy_disableEdgePanGestureRecoginzer:(BOOL)enable {
     if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.interactivePopGestureRecognizer.enabled = enable;
     }

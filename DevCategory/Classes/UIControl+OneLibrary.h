@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIControl (OneLibrary)
 
-- (void)ol_actionForControlEvents:(UIControlEvents)controlEvents usingBlock:(void (^)(id sender))block;
+- (void)zy_actionForControlEvents:(UIControlEvents)controlEvents usingBlock:(void (^)(id sender))block;
 
 @end
 

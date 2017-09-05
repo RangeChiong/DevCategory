@@ -72,42 +72,42 @@
 
 #pragma mark-  delegate
 
-- (UICollectionView *(^)(NSInteger (^)(UICollectionView *)))ol_numberOfSections {
+- (UICollectionView *(^)(NSInteger (^)(UICollectionView *)))zy_numberOfSections {
     return ^UICollectionView *(NSInteger (^block)(UICollectionView *)) {
         self.collectionViewHelper.numberOfSections = block;
         return self;
     };
 }
 
-- (UICollectionView *(^)(NSInteger (^)(UICollectionView *, NSInteger)))ol_numberOfRows {
+- (UICollectionView *(^)(NSInteger (^)(UICollectionView *, NSInteger)))zy_numberOfRows {
     return ^UICollectionView *(NSInteger (^block)(UICollectionView *, NSInteger)) {
         self.collectionViewHelper.numberOfRows = block;
         return self;
     };
 }
 
-- (UICollectionView *(^)(UICollectionViewCell *(^)(UICollectionView *, NSIndexPath *)))ol_cellForRow {
+- (UICollectionView *(^)(UICollectionViewCell *(^)(UICollectionView *, NSIndexPath *)))zy_cellForRow {
     return ^UICollectionView *(UICollectionViewCell *(^block)(UICollectionView *, NSIndexPath *)) {
         self.collectionViewHelper.cellForRow = block;
         return self;
     };
 }
 
-- (UICollectionView *(^)(UICollectionReusableView *(^)(UICollectionView *, NSIndexPath *)))ol_viewForHeader {
+- (UICollectionView *(^)(UICollectionReusableView *(^)(UICollectionView *, NSIndexPath *)))zy_viewForHeader {
     return ^UICollectionView *(UICollectionReusableView *(^block)(UICollectionView *, NSIndexPath *)) {
         self.collectionViewHelper.viewForHeader = block;
         return self;
     };
 }
 
-- (UICollectionView *(^)(UICollectionReusableView *(^)(UICollectionView *, NSIndexPath *)))ol_viewForFooter {
+- (UICollectionView *(^)(UICollectionReusableView *(^)(UICollectionView *, NSIndexPath *)))zy_viewForFooter {
     return ^UICollectionView *(UICollectionReusableView *(^block)(UICollectionView *, NSIndexPath *)) {
         self.collectionViewHelper.viewForFooter = block;
         return self;
     };
 }
 
-- (UICollectionView *(^)(void (^)(UICollectionView *, NSIndexPath *)))ol_didSelectRow {
+- (UICollectionView *(^)(void (^)(UICollectionView *, NSIndexPath *)))zy_didSelectRow {
     return ^UICollectionView *(void (^block)(UICollectionView *, NSIndexPath *)) {
         self.collectionViewHelper.didSelectRow = block;
         return self;
@@ -116,35 +116,35 @@
 
 #pragma mark-  public methods
 
-- (UICollectionView *(^)(id<UICollectionViewDelegate>))ol_delegate {
+- (UICollectionView *(^)(id<UICollectionViewDelegate>))zy_delegate {
     return ^UICollectionView *(id<UICollectionViewDelegate> delegate) {
         self.delegate = delegate;
         return self;
     };
 }
 
-- (UICollectionView *(^)(id<UICollectionViewDataSource>))ol_datasource {
+- (UICollectionView *(^)(id<UICollectionViewDataSource>))zy_datasource {
     return ^UICollectionView *(id<UICollectionViewDataSource> datasource) {
         self.dataSource = datasource;
         return self;
     };
 }
 
-- (UICollectionView *(^)(BOOL))ol_alwaysBounceHorizontal {
+- (UICollectionView *(^)(BOOL))zy_alwaysBounceHorizontal {
     return ^UICollectionView *(BOOL enabled) {
         self.alwaysBounceHorizontal = enabled;
         return self;
     };
 }
 
-- (UICollectionView *(^)(UICollectionViewLayout *))ol_collectionViewLayout {
+- (UICollectionView *(^)(UICollectionViewLayout *))zy_collectionViewLayout {
     return ^UICollectionView *(UICollectionViewLayout *flow) {
         self.collectionViewLayout = flow;
         return self;
     };
 }
 
-- (UICollectionView *(^)(Class))ol_registerCellXib {
+- (UICollectionView *(^)(Class))zy_registerCellXib {
     return ^UICollectionView *(Class cls) {
         NSString *name = NSStringFromClass(cls);
         [self registerNib:[UINib nibWithNibName:name bundle:nil] forCellWithReuseIdentifier:name];
@@ -152,7 +152,7 @@
     };
 }
 
-- (UICollectionView *(^)(Class))ol_registerCellClass {
+- (UICollectionView *(^)(Class))zy_registerCellClass {
     return ^UICollectionView *(Class cls) {
         [self registerClass:cls forCellWithReuseIdentifier:NSStringFromClass(cls)];
         return self;
@@ -160,7 +160,7 @@
 }
 
 
-- (UICollectionView *(^)(Class))ol_registerHeaderXib {
+- (UICollectionView *(^)(Class))zy_registerHeaderXib {
     return ^UICollectionView *(Class cls) {
         NSString *name = NSStringFromClass(cls);
         [self registerNib:[UINib nibWithNibName:name bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:name];
@@ -168,7 +168,7 @@
     };
 }
 
-- (UICollectionView *(^)(Class))ol_registerHeaderClass {
+- (UICollectionView *(^)(Class))zy_registerHeaderClass {
     return ^UICollectionView *(Class cls) {
         [self registerClass:cls forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(cls)];
         return self;
@@ -176,7 +176,7 @@
 }
 
 
-- (UICollectionView *(^)(Class))ol_registerFooterXib {
+- (UICollectionView *(^)(Class))zy_registerFooterXib {
     return ^UICollectionView *(Class cls) {
         NSString *name = NSStringFromClass(cls);
         [self registerNib:[UINib nibWithNibName:name bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:name];
@@ -184,7 +184,7 @@
     };
 }
 
-- (UICollectionView *(^)(Class))ol_registerFooterClass {
+- (UICollectionView *(^)(Class))zy_registerFooterClass {
     return ^UICollectionView *(Class cls) {
         [self registerClass:cls forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass(cls)];
         return self;

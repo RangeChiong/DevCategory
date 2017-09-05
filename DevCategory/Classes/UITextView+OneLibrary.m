@@ -27,15 +27,15 @@
 #pragma mark-  notification
 
 - (void)textContentChanged:(NSNotification *)noti {
-    if (self.ol_placeholder) {
+    if (self.zy_placeholder) {
         self.placeholderLabel.hidden = (self.text.length > 0);
     }
     
-    if (self.ol_limitLength) {
-        if (self.text.length > self.ol_limitLength) {
-            self.text = [self.text substringToIndex:self.ol_limitLength];
+    if (self.zy_limitLength) {
+        if (self.text.length > self.zy_limitLength) {
+            self.text = [self.text substringToIndex:self.zy_limitLength];
         }
-        self.wordCountLabel.text = [NSString stringWithFormat:@"%lu/%lu", self.text.length, self.ol_limitLength];
+        self.wordCountLabel.text = [NSString stringWithFormat:@"%lu/%lu", self.text.length, self.zy_limitLength];
     }
 }
 
@@ -80,25 +80,25 @@
     return label;
 }
 
-- (void)setOl_placeholder:(NSString *)ol_placeholder {
-    objc_setAssociatedObject(self, @selector(ol_placeholder), ol_placeholder, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    self.placeholderLabel.text = ol_placeholder;
+- (void)setZy_placeholder:(NSString *)zy_placeholder {
+    objc_setAssociatedObject(self, @selector(zy_placeholder), zy_placeholder, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    self.placeholderLabel.text = zy_placeholder;
     
     CGRect rect = self.placeholderLabel.frame;
     rect.size = [self.placeholderLabel sizeThatFits:self.frame.size];
     self.placeholderLabel.frame = rect;
 }
 
-- (NSString *)ol_placeholder {
+- (NSString *)zy_placeholder {
     return objc_getAssociatedObject(self, _cmd);
 }
 
-- (void)setOl_limitLength:(NSUInteger)ol_limitLength {
-    objc_setAssociatedObject(self, @selector(ol_limitLength), @(ol_limitLength), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    self.wordCountLabel.text = [self limitTextContent:ol_limitLength];
+- (void)setZy_limitLength:(NSUInteger)zy_limitLength {
+    objc_setAssociatedObject(self, @selector(zy_limitLength), @(zy_limitLength), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    self.wordCountLabel.text = [self limitTextContent:zy_limitLength];
 }
 
-- (NSUInteger)ol_limitLength {
+- (NSUInteger)zy_limitLength {
     return [objc_getAssociatedObject(self, _cmd) unsignedIntegerValue];
 }
 
