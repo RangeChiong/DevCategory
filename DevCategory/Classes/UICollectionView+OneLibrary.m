@@ -9,7 +9,7 @@
 #import "UICollectionView+OneLibrary.h"
 @import ObjectiveC.runtime;
 
-@interface __OLCollectionViewHelper : NSObject<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface __OLCollectionViewHelper : NSObject<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, copy) NSInteger(^numberOfSections)(UICollectionView *collectionView);
 @property (nonatomic, copy) NSInteger(^numberOfRows)(UICollectionView *collectionView, NSInteger section);
@@ -63,7 +63,7 @@ _Pragma("clang diagnostic ignored \"-Wobjc-property-implementation\"")
 
 @implementation UICollectionView (OneLibrary)
 
-- (__OLCollectionViewHelper *)collectionView_helper {
+- (__OLCollectionViewHelper *)collectionViewHelper {
     return objc_getAssociatedObject(self, _cmd) ?: ({
         __OLCollectionViewHelper *helper = [__OLCollectionViewHelper new];
         self.delegate = helper;
