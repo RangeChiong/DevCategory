@@ -10,6 +10,6 @@
 
 @interface UIViewController (OneLibrary)
 
-- (__kindof UIViewController *)ol_fromController;
+- (__kindof UIViewController *)zy_fromController;
 
 @end

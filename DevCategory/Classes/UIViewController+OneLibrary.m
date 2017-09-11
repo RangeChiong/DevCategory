@@ -10,7 +10,7 @@
 
 @implementation UIViewController (OneLibrary)
 
-- (UIViewController *)ol_fromController {
+- (UIViewController *)zy_fromController {
     UIViewController *presentingController = self.presentingViewController;
     UINavigationController *navController = self.navigationController;
     if (navController) {
