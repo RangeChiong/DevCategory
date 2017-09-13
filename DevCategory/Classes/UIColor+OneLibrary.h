@@ -10,11 +10,11 @@
 
 @interface UIColor (OneLibrary)
 
-@property (nonatomic, readonly, class) UIColor *ol_randomColor;
+@property (nonatomic, readonly, class) UIColor *zy_randomColor;
 
-+ (UIColor *)ol_colorWithHex:(NSString *)hex;
-+ (UIColor *)ol_colorWithHex: (NSString *)hex alpha:(CGFloat)alpha;
++ (UIColor *)zy_colorWithHex:(NSString *)hex;
++ (UIColor *)zy_colorWithHex: (NSString *)hex alpha:(CGFloat)alpha;
 
-- (BOOL)ol_isEqualToColor:(UIColor *)otherColor;
+- (BOOL)zy_isEqualToColor:(UIColor *)otherColor;
 
 @end

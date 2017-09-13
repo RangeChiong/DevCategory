@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-FOUNDATION_EXTERN void ol_swizzleClassDealloc(Class cls, void (^code)(__unsafe_unretained id object));
+FOUNDATION_EXTERN void zy_swizzleClassDealloc(Class cls, void (^code)(__unsafe_unretained id object));
 
 @interface NSObject (OneLibrary)
 

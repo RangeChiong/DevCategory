@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSString (OneLibrary)
 
 /** 设置指定位置文字的颜色 */
-- (NSAttributedString *)ol_attributedStringOfColor:(UIColor *)color range:(NSRange)range;
+- (NSAttributedString *)zy_attributedStringOfColor:(UIColor *)color range:(NSRange)range;
 
 @end
 
@@ -24,22 +24,22 @@ NS_ASSUME_NONNULL_BEGIN
 /*!
  *  获取沙盒下documens文件夹路径
  */
-+ (NSString *)ol_documentsPath;
++ (NSString *)zy_documentsPath;
 
 /*!
  *  获取沙盒下caches文件夹路径
  */
-+ (NSString *)ol_cachesPath;
++ (NSString *)zy_cachesPath;
 
 /*!
  *  获取沙盒下documens文件夹中 文件或者文件夹的完整路径
  */
-+ (NSString *)ol_documentsContentDirectory:(NSString *)name;
++ (NSString *)zy_documentsContentDirectory:(NSString *)name;
 
 /*!
  *  获取沙盒下caches文件夹中 文件或者文件夹的完整路径
  */
-+ (NSString *)ol_cachesContentDirectory:(NSString *)name;
++ (NSString *)zy_cachesContentDirectory:(NSString *)name;
 
 @end
 
@@ -48,31 +48,31 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSString (Reg)
 
 /** 获取字符数量 */
-- (int)ol_wordsCount;
+- (int)zy_wordsCount;
 
 /** 判断是否包含中文 */
-- (BOOL)ol_isContainChinese;
+- (BOOL)zy_isContainChinese;
 
 /** 判断是否包含空格 */
-- (BOOL)ol_isContainBlank;
+- (BOOL)zy_isContainBlank;
 
 /** 正则匹配11位手机号码 */
-- (BOOL)ol_isPhoneNumber;
+- (BOOL)zy_isPhoneNumber;
 
 /** 判断纯数字字符串 */
-- (BOOL)ol_isPureInt;
+- (BOOL)zy_isPureInt;
 
 /** 删除指定的一些字符 */
-- (NSString *)ol_deleteStrings:(NSArray *)strs;
+- (NSString *)zy_deleteStrings:(NSArray *)strs;
 
 /** 身份证号码验证 */
-- (BOOL)ol_validateIdentityCard;
+- (BOOL)zy_validateIdentityCard;
 
 /// 去掉整段文字内的所有空白字符（包括换行符）
-- (NSString *)ol_trimAllWhiteSpace;
+- (NSString *)zy_trimAllWhiteSpace;
 
 /// 将文字中的换行符替换为空格
-- (NSString *)ol_trimLineBreakCharacter;
+- (NSString *)zy_trimLineBreakCharacter;
 
 @end
 
@@ -81,16 +81,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSString (Project)
 
 /** 获取当前工程的发布版本 */
-+ (NSString *)ol_bundleShortVersion;
++ (NSString *)zy_bundleShortVersion;
 
 /** 获取当前工程的内部版本 */
-+ (NSString *)ol_bundleVersion;
++ (NSString *)zy_bundleVersion;
 
 /** 获取当前工程的唯一标识 */
-+ (NSString *)ol_bundleIdentifier;
++ (NSString *)zy_bundleIdentifier;
 
 /** 从mainBundle中根据key获取信息 */
-+ (NSString *)ol_objectFromMainBundleForKey:(NSString *)key;
++ (NSString *)zy_objectFromMainBundleForKey:(NSString *)key;
 
 @end
 
@@ -99,13 +99,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSString (Calculation)
 
 /** 计算单位 ：xxx万 xxx亿 */
-- (NSString *)ol_calculateUnit;
+- (NSString *)zy_calculateUnit;
 
 /** 添加千分符号 1,000,000 */
-- (NSString *)ol_addSeparator;
+- (NSString *)zy_addSeparator;
 
 /** 计算文字宽高 */
-- (CGSize)ol_stringSize:(UIFont *)font regularHeight:(CGFloat)height;
+- (CGSize)zy_stringSize:(UIFont *)font boundingSize:(CGSize)boundingSize;
 
 @end
 
@@ -113,10 +113,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSString (Encrypt)
 
-- (NSString *)ol_base64Encode;
-- (NSString *)ol_MD5;
-- (NSString *)ol_SHA1;
-- (NSString *)ol_SHA256;
+- (NSString *)zy_base64Encode;
+- (NSString *)zy_MD5;
+- (NSString *)zy_SHA1;
+- (NSString *)zy_SHA256;
 
 @end
 
@@ -137,7 +137,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSString (Device)
 
 /** 获取手机设备 */
-+ (NSString *)ol_deviceModel;
++ (NSString *)zy_deviceModel;
 
 @end
 

@@ -10,22 +10,22 @@
 
 @implementation NSTimer (OneLibrary)
 
-+ (instancetype)ol_scheduleTimerWithTimeInterval:(NSTimeInterval)ti
++ (instancetype)zy_scheduleTimerWithTimeInterval:(NSTimeInterval)ti
                                          repeats:(BOOL)rep
                                       usingBlock:(void (^)(NSTimer *timer))block {
-    return [self ol_scheduleTimerWithTimeInterval:ti repeats:rep mode:NSRunLoopCommonModes usingBlock:block];
+    return [self zy_scheduleTimerWithTimeInterval:ti repeats:rep mode:NSRunLoopCommonModes usingBlock:block];
 }
 
-+ (instancetype)ol_scheduleTimerWithTimeInterval:(NSTimeInterval)ti
++ (instancetype)zy_scheduleTimerWithTimeInterval:(NSTimeInterval)ti
                                          repeats:(BOOL)rep
                                             mode:(NSRunLoopMode)mode
                                       usingBlock:(void (^)(NSTimer *timer))block {
-    NSTimer *timer = [self ol_timerWithTimeInterval:ti repeats:rep usingBlock:block];
+    NSTimer *timer = [self zy_timerWithTimeInterval:ti repeats:rep usingBlock:block];
     [NSRunLoop.currentRunLoop addTimer:timer forMode:mode];
     return timer;
 }
 
-+ (instancetype)ol_timerWithTimeInterval:(NSTimeInterval)ti
++ (instancetype)zy_timerWithTimeInterval:(NSTimeInterval)ti
                                  repeats:(BOOL)rep
                               usingBlock:(void (^)(NSTimer *t))block {
     

@@ -12,25 +12,25 @@
 
 #pragma mark-   返回格式化后的日期字符串
 
-+ (NSString *)ol_stringFromTimeInterval:(NSTimeInterval)interval {
++ (NSString *)zy_stringFromTimeInterval:(NSTimeInterval)interval {
     //  处理时间
     NSDate *receivedDate = [NSDate dateWithTimeIntervalSince1970:interval];
-    return [self ol_stringFromDate:receivedDate];
+    return [self zy_stringFromDate:receivedDate];
 }
 
-+ (NSString *)ol_stringFromTimeInterval:(NSTimeInterval)interval
++ (NSString *)zy_stringFromTimeInterval:(NSTimeInterval)interval
                              withFormat:(NSString *)format {
     //  处理时间
     NSDate *receivedDate = [NSDate dateWithTimeIntervalSince1970:interval];
-    return [self ol_stringFromDate:receivedDate withFormat:format];
+    return [self zy_stringFromDate:receivedDate withFormat:format];
 }
 
-+ (NSString *)ol_stringFromNow {
++ (NSString *)zy_stringFromNow {
 
-    return [self ol_stringFromNowWithFormat:@"yyyy-MM-dd HH:mm:ss"];
+    return [self zy_stringFromNowWithFormat:@"yyyy-MM-dd HH:mm:ss"];
 }
 
-+ (NSString *)ol_stringFromNowWithFormat:(NSString *)format {
++ (NSString *)zy_stringFromNowWithFormat:(NSString *)format {
 
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:format];
@@ -38,12 +38,12 @@
     return [dateFormatter stringFromDate:[NSDate date]];
 }
 
-+ (NSString *)ol_stringFromDate:(NSDate *)date {
++ (NSString *)zy_stringFromDate:(NSDate *)date {
 
-    return [self ol_stringFromDate:date withFormat:@"yyyy-MM-dd HH:mm:ss"];
+    return [self zy_stringFromDate:date withFormat:@"yyyy-MM-dd HH:mm:ss"];
 }
 
-+ (NSString *)ol_stringFromDate:(NSDate *)date withFormat:(NSString *)format {
++ (NSString *)zy_stringFromDate:(NSDate *)date withFormat:(NSString *)format {
 
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:format];
@@ -51,30 +51,30 @@
     return [dateFormatter stringFromDate:date];
 }
 
-+ (NSString *)ol_stringOfTimeIntervalSince1970 {
-    return [NSString stringWithFormat:@"%.lf", [self ol_timeIntervalSince1970]];
++ (NSString *)zy_stringOfTimeIntervalSince1970 {
+    return [NSString stringWithFormat:@"%.lf", [self zy_timeIntervalSince1970]];
 }
 
 #pragma mark-   返回格式化后的日期字符串
 
-+ (NSDate *)ol_dateFromString:(NSString *)string {
++ (NSDate *)zy_dateFromString:(NSString *)string {
 
-    return [self ol_dateFromString:string withFormat:@"yyyy-MM-dd HH:mm:ss"];
+    return [self zy_dateFromString:string withFormat:@"yyyy-MM-dd HH:mm:ss"];
 }
 
-+ (NSDate *)ol_dateFromString:(NSString *)string withFormat:(NSString *)format {
++ (NSDate *)zy_dateFromString:(NSString *)string withFormat:(NSString *)format {
     NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
     [inputFormatter setDateFormat:format];
     NSDate *date = [inputFormatter dateFromString:string];
     return date;
 }
 
-+ (NSTimeInterval)ol_timeIntervalSince1970 {
++ (NSTimeInterval)zy_timeIntervalSince1970 {
 
     return [[NSDate date] timeIntervalSince1970];
 }
 
-- (NSString *)ol_toString:(NSString *)format {
+- (NSString *)zy_toString:(NSString *)format {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     
     dateFormatter.timeZone      = [NSTimeZone timeZoneWithName:@"Asia/Shanghai"];
@@ -83,7 +83,7 @@
     return [dateFormatter stringFromDate:self];
 }
 
-- (NSString *)ol_toYearMonthStringSinceNow {
+- (NSString *)zy_toYearMonthStringSinceNow {
     NSDate *now     = [NSDate date];
     NSCalendar *cal = [NSDate currentCalendar];
     
@@ -110,7 +110,7 @@
     return retString;
 }
 
-- (BOOL)ol_isSameDayWith:(NSDate *)date {
+- (BOOL)zy_isSameDayWith:(NSDate *)date {
     double timezoneFix = [NSTimeZone localTimeZone].secondsFromGMT;
     return (int)(([self timeIntervalSince1970] + timezoneFix)/(24*3600)) -
     (int)(([date timeIntervalSince1970] + timezoneFix)/(24*3600))
@@ -118,7 +118,7 @@
 }
 
 //
-+ (NSDate *)ol_dateFromString:(NSString *)dateString formmat:(NSString *)format {
++ (NSDate *)zy_dateFromString:(NSString *)dateString formmat:(NSString *)format {
     NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
     
     formatter.timeZone      = [NSTimeZone timeZoneWithName:@"Asia/Shanghai"];;
@@ -127,7 +127,7 @@
     return [formatter dateFromString:dateString];
 }
 
-+ (NSDate *)ol_beforeYear:(NSInteger)year month:(NSInteger)month {
++ (NSDate *)zy_beforeYear:(NSInteger)year month:(NSInteger)month {
     //计算生日
     NSDate *now     = [NSDate date];
     NSDateComponents *com = [[self currentCalendar] components:NSCalendarUnitMonth fromDate:now];
@@ -137,7 +137,7 @@
     return [[self currentCalendar] dateByAddingComponents:com toDate:now options:NSCalendarMatchFirst];
 }
 
-+ (NSDate *)ol_beforeYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day {
++ (NSDate *)zy_beforeYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day {
     NSDate *now     = [NSDate date];
     NSDateComponents *com = [[self currentCalendar] components:NSCalendarUnitMonth | NSCalendarUnitDay fromDate:now];
     
@@ -147,7 +147,7 @@
     return [[self currentCalendar] dateByAddingComponents:com toDate:now options:NSCalendarMatchFirst];
 }
 
-+ (NSDate *)ol_year:(NSInteger)year month:(NSInteger)month day:(NSInteger)day {
++ (NSDate *)zy_year:(NSInteger)year month:(NSInteger)month day:(NSInteger)day {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     
     dateFormatter.timeZone      = [NSTimeZone timeZoneWithName:@"Asia/Shanghai"];
@@ -159,7 +159,7 @@
     return date;
 }
 
-+ (NSString *)ol_weekdayStringWithDate:(NSDate *)date {
++ (NSString *)zy_weekdayStringWithDate:(NSDate *)date {
     static NSDateFormatter *formatter1;
     static dispatch_once_t onceToken1;
 
@@ -177,7 +177,7 @@
     return [formatter1 stringFromDate:date];
 }
 
-+ (NSString *)ol_fullWeekdayStringWithDate:(NSDate *)date {
++ (NSString *)zy_fullWeekdayStringWithDate:(NSDate *)date {
     static NSDateFormatter *formatter2;
     static dispatch_once_t onceToken2;
     dispatch_once(&onceToken2, ^{
@@ -195,7 +195,7 @@
     return [formatter2 stringFromDate:date];
 }
 
-+ (NSDate *)ol_dateFromFullWeekdayString:(NSString *)dateString {
++ (NSDate *)zy_dateFromFullWeekdayString:(NSString *)dateString {
     static NSDateFormatter *formatter3;
     static dispatch_once_t onceToken3;
     dispatch_once(&onceToken3, ^{
@@ -213,13 +213,13 @@
     return [formatter3 dateFromString:dateString];
 }
 
-+ (NSDate *)ol_dateFromComponent:(NSDateComponents *)components {
++ (NSDate *)zy_dateFromComponent:(NSDateComponents *)components {
     return [[self currentCalendar] dateFromComponents:components];
 }
 
-+ (NSString *)ol_dateStringFromComponent:(NSDateComponents *)components {
-    NSDate *date =[self ol_dateFromComponent:components];
-    return [self ol_fullWeekdayStringWithDate:date];
++ (NSString *)zy_dateStringFromComponent:(NSDateComponents *)components {
+    NSDate *date =[self zy_dateFromComponent:components];
+    return [self zy_fullWeekdayStringWithDate:date];
 }
 
 + (NSCalendar *)currentCalendar {
@@ -239,7 +239,7 @@
 
 @implementation NSDateComponents (OLSDateFormmat)
 
-+ (NSDateComponents *)ol_fullComponentFromDate:(NSDate *)date {
++ (NSDateComponents *)zy_fullComponentFromDate:(NSDate *)date {
     NSCalendar *calendar =[NSCalendar currentCalendar];
     return [calendar components:NSCalendarUnitYear |
             NSCalendarUnitMonth |

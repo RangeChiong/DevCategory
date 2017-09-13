@@ -10,11 +10,11 @@
 
 @implementation UIColor (OneLibrary)
 
-+ (UIColor *)ol_colorWithHex:(NSString *)hex {
-    return [UIColor ol_colorWithHex:hex alpha:1.0];
++ (UIColor *)zy_colorWithHex:(NSString *)hex {
+    return [UIColor zy_colorWithHex:hex alpha:1.0];
 }
 
-+ (UIColor *)ol_colorWithHex: (NSString *)hex alpha:(CGFloat)alpha {
++ (UIColor *)zy_colorWithHex: (NSString *)hex alpha:(CGFloat)alpha {
     NSString *cString = [[hex stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
     
     if ([cString length] < 6) return [UIColor clearColor];
@@ -48,7 +48,7 @@
                            alpha:alpha];
 }
 
-+ (UIColor *)ol_randomColor {
++ (UIColor *)zy_randomColor {
     CGFloat red = random()%255/255.0;
     CGFloat green = random()%255/255.0;
     CGFloat blue = random()%255/255.0;
@@ -56,7 +56,7 @@
 }
 
 
-- (BOOL)ol_isEqualToColor:(UIColor *)otherColor {
+- (BOOL)zy_isEqualToColor:(UIColor *)otherColor {
     
     CGColorSpaceRef colorSpaceRGB = CGColorSpaceCreateDeviceRGB();
     

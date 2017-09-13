@@ -18,7 +18,7 @@ _Pragma("clang diagnostic ignored \"-Wobjc-property-implementation\"")
 
 @implementation NSString (OneLibrary)
 
-- (NSAttributedString *)ol_attributedStringOfColor:(UIColor *)color range:(NSRange)range {
+- (NSAttributedString *)zy_attributedStringOfColor:(UIColor *)color range:(NSRange)range {
     NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:self];
     [attrStr addAttribute:NSForegroundColorAttributeName value:color range:range];
     return attrStr;
@@ -28,25 +28,25 @@ _Pragma("clang diagnostic ignored \"-Wobjc-property-implementation\"")
 
 @implementation NSString (FolderPath)
 
-+ (NSString *)ol_documentsPath {
-    return [self ol_searchPathFrom:NSDocumentDirectory];
++ (NSString *)zy_documentsPath {
+    return [self zy_searchPathFrom:NSDocumentDirectory];
 }
 
-+ (NSString *)ol_cachesPath {
-    return [self ol_searchPathFrom:NSCachesDirectory];
++ (NSString *)zy_cachesPath {
+    return [self zy_searchPathFrom:NSCachesDirectory];
 }
 
-+ (NSString *)ol_documentsContentDirectory:(NSString *)name {
-    return [NSString stringWithFormat:@"%@/%@", [self ol_documentsPath], name];
++ (NSString *)zy_documentsContentDirectory:(NSString *)name {
+    return [NSString stringWithFormat:@"%@/%@", [self zy_documentsPath], name];
 }
 
-+ (NSString *)ol_cachesContentDirectory:(NSString *)name {
-    return [NSString stringWithFormat:@"%@/%@", [self ol_cachesPath], name];
++ (NSString *)zy_cachesContentDirectory:(NSString *)name {
+    return [NSString stringWithFormat:@"%@/%@", [self zy_cachesPath], name];
 }
 
 #pragma mark-  private methods
 
-+ (NSString *)ol_searchPathFrom:(NSSearchPathDirectory)directory {
++ (NSString *)zy_searchPathFrom:(NSSearchPathDirectory)directory {
     return NSSearchPathForDirectoriesInDomains(directory, NSUserDomainMask, YES)[0];
 }
 
@@ -57,7 +57,7 @@ _Pragma("clang diagnostic ignored \"-Wobjc-property-implementation\"")
 @implementation NSString (Reg)
 
 #pragma mark-  获取字符数量
-- (int)ol_wordsCount {
+- (int)zy_wordsCount {
     NSInteger n = self.length;
     int i;
     int l = 0, a = 0, b = 0;
@@ -79,7 +79,7 @@ _Pragma("clang diagnostic ignored \"-Wobjc-property-implementation\"")
 }
 
 #pragma mark-   是否包含中文
-- (BOOL)ol_isContainChinese {
+- (BOOL)zy_isContainChinese {
     NSUInteger length = [self length];
     for (NSUInteger i = 0; i < length; i++) {
         NSRange range = NSMakeRange(i, 1);
@@ -93,7 +93,7 @@ _Pragma("clang diagnostic ignored \"-Wobjc-property-implementation\"")
 }
 
 #pragma mark-   是否包含空格
-- (BOOL)ol_isContainBlank {
+- (BOOL)zy_isContainBlank {
     NSRange range = [self rangeOfString:@" "];
     if (range.location != NSNotFound) {
         return YES;
@@ -102,14 +102,14 @@ _Pragma("clang diagnostic ignored \"-Wobjc-property-implementation\"")
 }
 
 #pragma mark-  判断纯数字字符串
-- (BOOL)ol_isPureInt {
+- (BOOL)zy_isPureInt {
     NSScanner *scan = [NSScanner scannerWithString:self];
     int val;
     return [scan scanInt:&val] && [scan isAtEnd];
 }
 
 #pragma 正则匹配11位手机号
-- (BOOL)ol_isPhoneNumber {
+- (BOOL)zy_isPhoneNumber {
     
     NSString * MOBILE = @"^1(3[0-9]|5[0-35-9]|8[025-9])\\d{8}$";
     
@@ -135,7 +135,7 @@ _Pragma("clang diagnostic ignored \"-Wobjc-property-implementation\"")
     }
 }
 
-- (NSString *)ol_deleteStrings:(NSArray *)strs {
+- (NSString *)zy_deleteStrings:(NSArray *)strs {
     NSString *resultStr = self.copy;
     for (NSString *tmpStr in strs) {
         resultStr = [resultStr stringByReplacingOccurrencesOfString:tmpStr withString:@""];
@@ -143,7 +143,7 @@ _Pragma("clang diagnostic ignored \"-Wobjc-property-implementation\"")
     return resultStr;
 }
 
-- (BOOL)ol_validateIdentityCard {
+- (BOOL)zy_validateIdentityCard {
     BOOL flag;
     if (self.length <= 0) {
         flag = NO;
@@ -154,11 +154,11 @@ _Pragma("clang diagnostic ignored \"-Wobjc-property-implementation\"")
     return [identityCardPredicate evaluateWithObject:self];
 }
 
-- (NSString *)ol_trimAllWhiteSpace {
+- (NSString *)zy_trimAllWhiteSpace {
     return [self stringByReplacingOccurrencesOfString:@"\\s" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, self.length)];
 }
 
-- (NSString *)ol_trimLineBreakCharacter {
+- (NSString *)zy_trimLineBreakCharacter {
     return [self stringByReplacingOccurrencesOfString:@"[\r\n]" withString:@" " options:NSRegularExpressionSearch range:NSMakeRange(0, self.length)];
 }
 
@@ -168,19 +168,19 @@ _Pragma("clang diagnostic ignored \"-Wobjc-property-implementation\"")
 
 @implementation NSString (Project)
 
-+ (NSString *)ol_bundleShortVersion {
-    return [self ol_objectFromMainBundleForKey:@"CFBundleShortVersionString"];
++ (NSString *)zy_bundleShortVersion {
+    return [self zy_objectFromMainBundleForKey:@"CFBundleShortVersionString"];
 }
 
-+ (NSString *)ol_bundleVersion {
-    return [self ol_objectFromMainBundleForKey:@"CFBundleVersion"];
++ (NSString *)zy_bundleVersion {
+    return [self zy_objectFromMainBundleForKey:@"CFBundleVersion"];
 }
 
-+ (NSString *)ol_bundleIdentifier {
-    return [self ol_objectFromMainBundleForKey:@"CFBundleIdentifier"];
++ (NSString *)zy_bundleIdentifier {
+    return [self zy_objectFromMainBundleForKey:@"CFBundleIdentifier"];
 }
 
-+ (NSString *)ol_objectFromMainBundleForKey:(NSString *)key {
++ (NSString *)zy_objectFromMainBundleForKey:(NSString *)key {
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     return  [infoDictionary objectForKey:key];
 }
@@ -193,7 +193,7 @@ _Pragma("clang diagnostic ignored \"-Wobjc-property-implementation\"")
 
 #pragma mark-  handler
 // 计算单位
-- (NSString *)ol_calculateUnit {
+- (NSString *)zy_calculateUnit {
     NSInteger nRet = 0;
     NSInteger value = self.integerValue;
     NSString *resultStr = @"";
@@ -209,7 +209,7 @@ _Pragma("clang diagnostic ignored \"-Wobjc-property-implementation\"")
 }
 
 // 添加逗号分割 20000 = 20,000
-- (NSString *)ol_addSeparator {
+- (NSString *)zy_addSeparator {
     NSMutableString *mStr = self.mutableCopy;
     NSRange range = [mStr rangeOfString:@"."];  // 防止有小数点
     NSInteger index = (range.location != NSNotFound) ? range.location : self.length;
@@ -222,7 +222,7 @@ _Pragma("clang diagnostic ignored \"-Wobjc-property-implementation\"")
 
 #pragma mark-  string length
 
-- (CGSize)ol_stringSize:(UIFont *)font boundingSize:(CGSize)boundingSize {
+- (CGSize)zy_stringSize:(UIFont *)font boundingSize:(CGSize)boundingSize {
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:self];
     NSDictionary *attrSyleDict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                   font, NSFontAttributeName,
@@ -244,7 +244,7 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
 
 @implementation NSString (Encrypt)
 
-- (NSString *)ol_base64Encode {
+- (NSString *)zy_base64Encode {
     if ([self length] == 0)
         return @"";
     
@@ -278,7 +278,7 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
                                     freeWhenDone:YES];
 }
 
-- (NSString *)ol_MD5 {
+- (NSString *)zy_MD5 {
     unsigned int outputLength = CC_MD5_DIGEST_LENGTH;
     unsigned char output[outputLength];
     
@@ -286,7 +286,7 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
     return [self __toHexString:output length:outputLength];
 }
 
-- (NSString *)ol_SHA1 {
+- (NSString *)zy_SHA1 {
     unsigned int outputLength = CC_SHA1_DIGEST_LENGTH;
     unsigned char output[outputLength];
     
@@ -294,7 +294,7 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
     return [self __toHexString:output length:outputLength];
 }
 
-- (NSString *)ol_SHA256 {
+- (NSString *)zy_SHA256 {
     unsigned int outputLength = CC_SHA256_DIGEST_LENGTH;
     unsigned char output[outputLength];
     
@@ -322,7 +322,7 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
 
 @implementation NSString (Chain)
 
-+ (NSString *(^)(NSString *, ...))ol_format {
++ (NSString *(^)(NSString *, ...))zy_format {
     return ^NSString* (NSString *str, ...) {
         va_list args;
         va_start(args, str);
@@ -332,19 +332,19 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
     };
 }
 
-- (BOOL (^)(NSString *))ol_equal {
+- (BOOL (^)(NSString *))zy_equal {
     return ^BOOL (NSString *str) {
         return [self isEqualToString:str];
     };
 }
 
-- (NSString *(^)(NSString *))ol_append {
+- (NSString *(^)(NSString *))zy_append {
     return ^NSString *(NSString *str){
         return [self stringByAppendingString:str];
     };
 }
 
-- (NSString *(^)(NSString *, ...))ol_appendFormat {
+- (NSString *(^)(NSString *, ...))zy_appendFormat {
     return ^NSString* (NSString *str, ...) {
         va_list args;
         va_start(args, str);
@@ -354,7 +354,7 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
     };
 }
 
-- (NSString *(^)(NSString *, NSString *))ol_replace {
+- (NSString *(^)(NSString *, NSString *))zy_replace {
     return ^NSString* (NSString *src, NSString *dst) {
         return [self stringByReplacingOccurrencesOfString:src withString:dst];
     };
@@ -368,7 +368,7 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
 /**
  *  获取手机设备
  */
-+ (NSString *)ol_deviceModel {
++ (NSString *)zy_deviceModel {
     //获得设备型号
     int mib[2];
     size_t len;

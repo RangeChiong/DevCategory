@@ -67,49 +67,49 @@ _Pragma("clang diagnostic ignored \"-Wobjc-property-implementation\"")
 
 #pragma mark-  public methods
 
-- (UITableView *(^)(id<UITableViewDelegate>))ol_delegate {
+- (UITableView *(^)(id<UITableViewDelegate>))zy_delegate {
     return ^UITableView *(id<UITableViewDelegate> delegate) {
         self.delegate = delegate;
         return self;
     };
 }
 
-- (UITableView *(^)(id<UITableViewDataSource>))ol_datasource {
+- (UITableView *(^)(id<UITableViewDataSource>))zy_datasource {
     return ^UITableView *(id<UITableViewDataSource> datasource) {
         self.dataSource = datasource;
         return self;
     };
 }
 
-- (UITableView *(^)(UIView *))ol_tableHeaderView {
+- (UITableView *(^)(UIView *))zy_tableHeaderView {
     return ^UITableView *(UIView *view) {
         self.tableHeaderView = view;
         return self;
     };
 }
 
-- (UITableView *(^)(UIView *))ol_tableFooterView {
+- (UITableView *(^)(UIView *))zy_tableFooterView {
     return ^UITableView *(UIView *view) {
         self.tableFooterView = view;
         return self;
     };
 }
 
-- (UITableView *(^)(CGFloat))ol_rowHeight {
+- (UITableView *(^)(CGFloat))zy_rowHeight {
     return ^UITableView *(CGFloat h) {
         self.rowHeight = h;
         return self;
     };
 }
 
-- (UITableView *(^)(CGFloat))ol_estimatedRowHeight {
+- (UITableView *(^)(CGFloat))zy_estimatedRowHeight {
     return ^UITableView *(CGFloat h) {
         self.estimatedRowHeight = h;
         return self;
     };
 }
 
-- (UITableView *(^)(CGFloat))ol_sectionHeaderHeight {
+- (UITableView *(^)(CGFloat))zy_sectionHeaderHeight {
     return ^UITableView *(CGFloat h) {
         self.sectionHeaderHeight = h;
         return self;
@@ -117,14 +117,14 @@ _Pragma("clang diagnostic ignored \"-Wobjc-property-implementation\"")
 }
 
 
-- (UITableView *(^)(CGFloat))ol_sectionFooterHeight {
+- (UITableView *(^)(CGFloat))zy_sectionFooterHeight {
     return ^UITableView *(CGFloat h) {
         self.sectionFooterHeight = h;
         return self;
     };
 }
 
-- (UITableView *(^)(Class))ol_registerCellXib {
+- (UITableView *(^)(Class))zy_registerCellXib {
     return ^UITableView *(Class cls) {
         NSString *name = NSStringFromClass(cls);
         [self registerNib:[UINib nibWithNibName:name bundle:nil] forCellReuseIdentifier:name];
@@ -132,7 +132,7 @@ _Pragma("clang diagnostic ignored \"-Wobjc-property-implementation\"")
     };
 }
 
-- (UITableView *(^)(Class))ol_registerCellClass {
+- (UITableView *(^)(Class))zy_registerCellClass {
     return ^UITableView *(Class cls) {
         [self registerClass:cls forCellReuseIdentifier:NSStringFromClass(cls)];
         return self;
@@ -140,13 +140,13 @@ _Pragma("clang diagnostic ignored \"-Wobjc-property-implementation\"")
 }
 
 
-- (UITableView *(^)())ol_adjustTopPosition {
+- (UITableView *(^)())zy_adjustTopPosition {
     return ^UITableView * {
-        return self.ol_adjustTopPositionWithHeight(CGFLOAT_MIN);
+        return self.zy_adjustTopPositionWithHeight(CGFLOAT_MIN);
     };
 }
 
-- (UITableView *(^)(CGFloat))ol_adjustTopPositionWithHeight {
+- (UITableView *(^)(CGFloat))zy_adjustTopPositionWithHeight {
     return ^UITableView *(CGFloat h) {
         self.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, h)];
         return self;
@@ -154,13 +154,13 @@ _Pragma("clang diagnostic ignored \"-Wobjc-property-implementation\"")
 }
 
 
-- (UITableView *(^)())ol_adjustBottomPosition {
+- (UITableView *(^)())zy_adjustBottomPosition {
     return ^UITableView * {
-        return self.ol_adjustBottomPositionWithHeight(49);
+        return self.zy_adjustBottomPositionWithHeight(49);
     };
 }
 
-- (UITableView *(^)(CGFloat))ol_adjustBottomPositionWithHeight {
+- (UITableView *(^)(CGFloat))zy_adjustBottomPositionWithHeight {
     return ^UITableView *(CGFloat h) {
         self.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, h)];
         return self;
@@ -169,28 +169,28 @@ _Pragma("clang diagnostic ignored \"-Wobjc-property-implementation\"")
 
 #pragma mark-  delegate
 
-- (UITableView *(^)(NSInteger (^)(UITableView *)))ol_numberOfSections {
+- (UITableView *(^)(NSInteger (^)(UITableView *)))zy_numberOfSections {
     return ^UITableView *(NSInteger (^block)(UITableView *)) {
         self.tableViewHelper.numberOfSections = block;
         return self;
     };
 }
 
-- (UITableView *(^)(NSInteger (^)(UITableView *, NSInteger)))ol_numberOfRows {
+- (UITableView *(^)(NSInteger (^)(UITableView *, NSInteger)))zy_numberOfRows {
     return ^UITableView *(NSInteger (^block)(UITableView *, NSInteger)) {
         self.tableViewHelper.numberOfRows = block;
         return self;
     };
 }
 
-- (UITableView *(^)(UITableViewCell *(^)(UITableView *, NSIndexPath *)))ol_cellForRow {
+- (UITableView *(^)(UITableViewCell *(^)(UITableView *, NSIndexPath *)))zy_cellForRow {
     return ^UITableView *(UITableViewCell *(^block)(UITableView *, NSIndexPath *)) {
         self.tableViewHelper.cellForRow = block;
         return self;
     };
 }
 
-- (UITableView *(^)(void (^)(UITableView *, NSIndexPath *)))ol_didSelectRow {
+- (UITableView *(^)(void (^)(UITableView *, NSIndexPath *)))zy_didSelectRow {
     return ^UITableView *(void(^block)(UITableView *, NSIndexPath *)) {
         self.tableViewHelper.didSelectRow = block;
         return self;

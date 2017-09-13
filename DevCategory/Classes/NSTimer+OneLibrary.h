@@ -13,12 +13,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSTimer (OneLibrary)
 
 /** 开启一个定时器 默认为RunLoopCommonMode */
-+ (instancetype)ol_scheduleTimerWithTimeInterval:(NSTimeInterval)ti
++ (instancetype)zy_scheduleTimerWithTimeInterval:(NSTimeInterval)ti
                                          repeats:(BOOL)rep
                                       usingBlock:(void (^)(NSTimer *timer))block;
 
 /** 开启一个定时器 */
-+ (instancetype)ol_scheduleTimerWithTimeInterval:(NSTimeInterval)ti
++ (instancetype)zy_scheduleTimerWithTimeInterval:(NSTimeInterval)ti
                                          repeats:(BOOL)rep
                                             mode:(NSRunLoopMode)mode
                                       usingBlock:(void (^)(NSTimer *timer))block;
@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 /*!
  *  创建一个NSTimer实例
  */
-+ (instancetype)ol_timerWithTimeInterval:(NSTimeInterval)ti
++ (instancetype)zy_timerWithTimeInterval:(NSTimeInterval)ti
                                  repeats:(BOOL)rep
                               usingBlock:(void (^)(NSTimer *t))block;
 

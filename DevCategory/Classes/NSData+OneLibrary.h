@@ -10,8 +10,8 @@
 
 @interface NSData (OneLibrary)
 
-- (NSData *)ol_MD5Digest;
+- (NSData *)zy_MD5Digest;
 
-- (NSString *)ol_MD5HexDigest;
+- (NSString *)zy_MD5HexDigest;
 
 @end
