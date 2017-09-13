@@ -222,7 +222,7 @@ _Pragma("clang diagnostic ignored \"-Wobjc-property-implementation\"")
 
 #pragma mark-  string length
 
-- (CGSize)ol_stringSize:(UIFont *)font regularHeight:(CGFloat)height {
+- (CGSize)ol_stringSize:(UIFont *)font boundingSize:(CGSize)boundingSize {
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:self];
     NSDictionary *attrSyleDict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                   font, NSFontAttributeName,
@@ -230,7 +230,7 @@ _Pragma("clang diagnostic ignored \"-Wobjc-property-implementation\"")
     
     [attributedString addAttributes:attrSyleDict
                               range:NSMakeRange(0, self.length)];
-    CGRect stringRect = [attributedString boundingRectWithSize:CGSizeMake(MAXFLOAT, height)
+    CGRect stringRect = [attributedString boundingRectWithSize:boundingSize
                                                        options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
                                                        context:nil];
     return stringRect.size;
